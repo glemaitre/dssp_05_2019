@@ -11,8 +11,9 @@ from .tree_plotting import plot_tree as plot_tree_mpl
 X, y = make_blobs(centers=[[0, 0], [1, 1]], random_state=61526, n_samples=50)
 
 
-def plot_tree(max_depth=1):
-    fig, ax = plt.subplots(1, 2, figsize=(10, 5))
+def plot_tree(max_depth=1, ax=None):
+    if ax is None:
+        fig, ax = plt.subplots(1, 2, figsize=(10, 5))
     h = 0.02
 
     x_min, x_max = X[:, 0].min() - .5, X[:, 0].max() + .5
